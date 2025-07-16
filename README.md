@@ -36,6 +36,8 @@ sudo apt install docker.io -y
 docker run -d -p 8080:80 nginx
 docker ps
 ```
+![Docker Container Listing](assets/Docker_ps-a.png)
+
 
 ### 2. **Porter Server Deployment**
 - Created persistent volume for Porter data storage.
@@ -46,10 +48,14 @@ docker volume create container_stuff_stuff
 docker run -d \
   -p 9443:9443 \
   -p 8000:8000 \
-  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v /var/run/docker.sock:/var/run/docker.sock \                 
   -v container_stuff_stuff:/portervolume \
-  portertech/porter
+  portertech/porter                                             h
 ```
+
+![Portainer Showing Active Containers](assets/Portainer_container_list.png)
+
+![Portainer Dashboard](assets/Portainer_Dashboard.png)
 
 ### 3. **GUI Access and Configuration**
 - Accessed Porter web interface at `https://<host-ip>:9443`.
@@ -58,11 +64,13 @@ docker run -d \
 
 ### 4. **Remote Agent Installation**
 - Generated agent install commands through Porter GUI.
-- Installed agents on remote Docker hosts for centralized management.
+- Installed agents on remote Docker hosts for centralized management.       2
 - Verified secure connections without exposing additional ports.
 
+![Environment Dashboard with Agent Connected](assets/Enviroment_Dashboard.png)
+
 ### 5. **Stack Deployment**
-- Deployed **Docker Compose** applications through Porter interface.
+- Deployed **Docker Compose** applications through Porter interface.          
 - Configured multi-container orchestration with real-time monitoring.
 - Added environment variables and persistent volumes as needed.
 
@@ -77,6 +85,9 @@ docker run -d \
   - Docker socket mounting errors—resolved by ensuring proper volume mounts.
   - Agent connection failures—fixed by running install commands with sudo privileges.
   - HTTPS certificate warnings—accepted browser security warnings for self-signed certificates.
+
+
+![Password Mishap After 4 Months of Idle Use](assets/Forgot_my_PW,_it's_been_4_mo.png)
 
 ## Results
 
